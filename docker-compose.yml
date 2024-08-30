@@ -10,16 +10,16 @@ services:
       - POSTGRES_PASSWORD=shopper
       - POSTGRES_DB=shopper
 
-    api:
-      image: node:20
-      container_name: api
-      working_dir: /src/shared/http/server
-      volumes:
-        - .:/src/shared/http/server
-      ports:
-        - "3333:3333"
-      environment:
-        DATABASE_URL: postgres://shopper:shopper@pg:5432/shopper
-      depends_on:
-        - pg
-      command: sh -c "npm install && npx prisma migrate dev && npm run dev"
+  api:
+    image: node:20
+    container_name: api
+    working_dir: /src/shared/http/server
+    volumes:
+      - .:/src/shared/http/server
+    ports:
+      - "3333:3333"
+    environment:
+      DATABASE_URL: postgres://shopper:shopper@pg:5432/shopper
+    depends_on:
+      - pg
+    command: sh -c "npm install && npx prisma migrate dev && npm run dev"
