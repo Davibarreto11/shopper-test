@@ -1,12 +1,14 @@
 import "reflect-metadata";
 import "dotenv/config";
 import "@/shared/container";
+import routes from "@/shared/http/routes";
 import AppError from "@/shared/errors/AppError";
 import express, { Request, Response, NextFunction } from "express";
 
 const app = express();
 
 app.use(express.json());
+app.use(routes);
 
 app.use((err: Error, __: Request, response: Response, _: NextFunction) => {
   if (err instanceof AppError) {
