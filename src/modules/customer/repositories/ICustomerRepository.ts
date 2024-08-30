@@ -1,6 +1,12 @@
-import type { CreateCustomerSchema } from "../dtos/ICreateCustomerDTO";
+import type {
+  CreateCustomerSchema,
+  ResponseCustomer,
+} from "../dtos/ICreateCustomerDTO";
 
 export default interface ICustomerRepository {
-  create: (data: CreateCustomerSchema) => Promise<any>;
-  findByCustomerCode: (data: CreateCustomerSchema) => Promise<any>;
+  create: (data: CreateCustomerSchema) => Promise<ResponseCustomer>;
+  findByCustomerCode: ({
+    customer_code,
+    measure_type,
+  }: CreateCustomerSchema) => Promise<ResponseCustomer | null>;
 }

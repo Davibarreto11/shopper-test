@@ -9,10 +9,15 @@ class MeasureRepository implements IMeasureRepository {
   async findAllCustomer({
     constumer_id,
     measure_type,
+    measure_datetime,
   }: Partial<CreateMeasureSchema>) {
     const measures = await prisma.measure.findMany({
       where: { customerId: constumer_id, measureType: measure_type },
     });
+
+    if (!measures) {
+      return null;
+    }
 
     return measures;
   }
@@ -42,7 +47,6 @@ class MeasureRepository implements IMeasureRepository {
     constumer_id,
     measure_type,
   }: Partial<CreateMeasureSchema>) {
-    console.log(measure_type);
     const measure = await prisma.measure.findFirst({
       where: {
         customerId: constumer_id,

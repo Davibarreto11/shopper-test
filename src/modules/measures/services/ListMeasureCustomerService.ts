@@ -17,7 +17,7 @@ class ListMeasureCustomerService {
   public async execute({
     customer_code,
     measure_type,
-  }: Partial<CreateCustomerSchema>): Promise<any> {
+  }: Partial<CreateCustomerSchema>) {
     if (!customer_code) return;
 
     const customer = await this.customerRepository.findByCustomerCode({
@@ -34,7 +34,7 @@ class ListMeasureCustomerService {
       measure_type,
     });
 
-    if (measureExists.length === 0) {
+    if (!measureExists) {
       return new AppError("Nenhuma leitura encontrada.", 404);
     }
 

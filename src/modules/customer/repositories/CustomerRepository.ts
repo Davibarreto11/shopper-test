@@ -13,12 +13,21 @@ class CustomerRepository implements ICustomerRepository {
     return customer;
   }
 
-  findByCustomerCode({ customer_code }: CreateCustomerSchema) {
-    return prisma.customer.findFirst({
+  async findByCustomerCode({
+    customer_code,
+    measure_type,
+  }: CreateCustomerSchema) {
+    const customer = await prisma.customer.findFirst({
       where: {
         customerCode: customer_code,
       },
     });
+
+    if (!customer) {
+      return null;
+    }
+
+    return customer;
   }
 }
 

@@ -39,5 +39,24 @@ export const IUpdateMeasureDTO = z.object({
   measure_id: z.string(),
   has_confirmed: z.boolean(),
 });
+
+export const schemaMeasures = z.object({
+  id: z.string(),
+  measureDatetime: z.string(),
+  measureType: z.string(),
+  measureValue: z.number(),
+  hasConfirmed: z.boolean(),
+  imageUrl: z.string(),
+  createdAt: z.date(),
+  updatedAt: z.date(),
+  customerId: z.string(),
+});
+
+export const schemaCustomerFindAllMeasures = z.array(schemaMeasures);
+
+export type ResponseMeasure = z.infer<typeof schemaMeasures>;
+export type ResponseMeasuresCustomer = z.infer<
+  typeof schemaCustomerFindAllMeasures
+>;
 export type UpdateMeasureDTO = z.infer<typeof IUpdateMeasureDTO>;
 export type CreateMeasureSchema = z.infer<typeof ICreateMeasureDTO>;

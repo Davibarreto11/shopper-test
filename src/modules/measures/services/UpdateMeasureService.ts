@@ -10,10 +10,7 @@ class UpdateMeasureSerivce {
     private readonly measureRepository: IMeasureRepository
   ) {}
 
-  public async execute({
-    measure_id,
-    has_confirmed,
-  }: UpdateMeasureDTO): Promise<unknown> {
+  public async execute({ measure_id, has_confirmed }: UpdateMeasureDTO) {
     const measureExists = await this.measureRepository.findById(measure_id);
     if (!measureExists) {
       return new AppError("Measure not found!", 404);

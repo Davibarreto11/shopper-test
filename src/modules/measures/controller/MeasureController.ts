@@ -6,8 +6,6 @@ import CreateCustomerService from "@/modules/customer/services/CreateCustomerSer
 import UpdateMeasureSerivce from "@/modules/measures/services/UpdateMeasureService";
 import ListMeasureCustomerService from "@/modules/measures/services/ListMeasureCustomerService";
 
-import { schemaCustomerCode, schemaMeasureType } from "../dtos/MeasureDTOS";
-
 class MeasureController {
   public async create(request: Request, reponse: Response): Promise<Response> {
     const {

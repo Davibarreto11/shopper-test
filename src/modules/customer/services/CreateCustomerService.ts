@@ -1,7 +1,10 @@
 import { inject, injectable } from "tsyringe";
 import type ICustomerRepository from "../repositories/ICustomerRepository";
 import AppError from "@/shared/errors/AppError";
-import type { CreateCustomerSchema } from "../dtos/ICreateCustomerDTO";
+import type {
+  CreateCustomerSchema,
+  ResponseCustomer,
+} from "../dtos/ICreateCustomerDTO";
 
 @injectable()
 class CreateCustomerService {
@@ -10,7 +13,10 @@ class CreateCustomerService {
     private readonly customerRepository: ICustomerRepository
   ) {}
 
-  public async execute({ customer_code, measure_type }: CreateCustomerSchema) {
+  public async execute({
+    customer_code,
+    measure_type,
+  }: CreateCustomerSchema): Promise<ResponseCustomer> {
     const checkCustomerExists =
       await this.customerRepository.findByCustomerCode({
         customer_code,
