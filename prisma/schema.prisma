@@ -14,8 +14,33 @@ datasource db {
 }
 
 model Customer {
-  customerCode    String   @id @default(uuid()) @map("costumer_code")
-  imageUrl        String   @map("image_url")
-  measureDatetime DateTime @map("measure_datetime")
-  measureType     String   @map("measure_type")
+  id           String   @id @default(uuid())
+  customerCode String   @unique @map("customer_code")
+  createdAt    DateTime @default(now()) @map("created_at")
+  updatedAt    DateTime @updatedAt @map("updated_at")
+
+  measures Measure[]
+
+  @@map("customers")
+}
+
+enum MeasureType {
+  WATER
+  GAS
+}
+
+model Measure {
+  id              String      @id @default(uuid())
+  measureDatetime String      @map("measure_datetime")
+  measureType     MeasureType @map("measure_type")
+  measureValue    Float       @map("measure_value")
+  hasConfirmed    Boolean     @default(false) @map("has_confirmed")
+  imageUrl        String      @map("image_url")
+  createdAt       DateTime    @default(now()) @map("created_at")
+  updatedAt       DateTime    @updatedAt @map("updated_at")
+
+  costumerId Customer @relation(fields: [customerId], references: [id])
+  customerId String   @map("customer_id")
+
+  @@map("measures")
 }
