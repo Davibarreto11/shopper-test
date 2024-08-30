@@ -1,7 +1,9 @@
 import { Router } from "express";
 
-import billRouter from "@/modules/bills/routes/bills.routes";
+import measureRouter from "@/modules/bills/routes/measures.routes";
 
 const routes = Router();
 
-routes.use("/bill", billRouter);
+routes.use("/", measureRouter);
+
+export default routes;
