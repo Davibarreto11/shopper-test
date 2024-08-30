@@ -6,7 +6,7 @@
 
 ###
 
-<h2 align="left"></h2>
+<h2 align="left">Antes de tudo você precisa setar as variáveis no .env existe um arquivo de exemplo. Lembre-se de trocar em "DATABASE_URL" pelos nos da sua variável como DB_HOST DB_USERNAME DB_PASSWORD DB_NAME DB_PORT</h2>
 
 ###
 
