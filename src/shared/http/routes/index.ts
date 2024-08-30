@@ -1,6 +1,6 @@
 import { Router } from "express";
 
-import measureRouter from "@/modules/bills/routes/measures.routes";
+import measureRouter from "@/modules/measures/routes/measures.routes";
 
 const routes = Router();
 

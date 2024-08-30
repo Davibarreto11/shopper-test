@@ -1,10 +1,10 @@
 import { Request, Response } from "express";
 import { container } from "tsyringe";
 
-import CreateMeasureSerivce from "@/modules/bills/services/CreateMeasureSerivce";
+import CreateMeasureSerivce from "@/modules/measures/services/CreateMeasureSerivce";
 import CreateCustomerService from "@/modules/customer/services/CreateCustomerService";
-import UpdateMeasureSerivce from "@/modules/bills/services/UpdateMeasureService";
-import ListMeasureCustomerService from "@/modules/bills/services/ListMeasureCustomerService";
+import UpdateMeasureSerivce from "@/modules/measures/services/UpdateMeasureService";
+import ListMeasureCustomerService from "@/modules/measures/services/ListMeasureCustomerService";
 
 import { schemaCustomerCode, schemaMeasureType } from "../dtos/MeasureDTOS";
 

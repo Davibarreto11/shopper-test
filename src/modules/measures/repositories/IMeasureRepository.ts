@@ -1,7 +1,7 @@
 import {
   CreateMeasureSchema,
   type UpdateMeasureDTO,
-} from "@/modules/bills/dtos/MeasureDTOS";
+} from "@/modules/measures/dtos/MeasureDTOS";
 
 export default interface IMeasureRepository {
   findByDateTime: ({

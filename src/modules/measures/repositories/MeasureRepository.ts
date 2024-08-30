@@ -47,6 +47,7 @@ class MeasureRepository implements IMeasureRepository {
       where: {
         customerId: constumer_id,
         measureDatetime: measure_datetime,
+        measureType: measure_type,
       },
     });
 

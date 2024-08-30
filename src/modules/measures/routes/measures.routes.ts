@@ -7,7 +7,7 @@ import {
   schemaMeasureType,
   schemaCustomerCode,
   schemaMeasureUpdate,
-} from "@/modules/bills/dtos/MeasureDTOS";
+} from "@/modules/measures/dtos/MeasureDTOS";
 import { container } from "tsyringe";
 import UploadUserAvatarService from "@/modules/customer/services/UploadFileService";
 
